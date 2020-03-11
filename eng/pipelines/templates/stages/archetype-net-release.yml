@@ -16,7 +16,7 @@ stages:
           runOnce:
             deploy:
               steps:
-                - checkout: none
+                - checkout: azure-sdk-build-tools
 
                 - download: current
                   artifact: ${{parameters.ArtifactName}}
@@ -29,12 +29,10 @@ stages:
                       Get-ChildItem $(Pipeline.Workspace)/staging
                     displayName: Copying ${{artifact.name}} to staging directory
 
-                - template: tools/clone-buildtools/clone-buildtools.yml@azure-sdk-build-tools
-
-                - template: pipelines/steps/net-signing.yml@azure-sdk-build-tools
+                - template: pipelines/steps/net-signing.yml
                   parameters:
                     PackagesPath: $(Pipeline.Workspace)/staging
-                    BuildToolsPath: $(AzureSDKBuildToolsPath)
+                    BuildToolsPath: $(Build.SourcesDirectory)
 
                 - publish: $(Pipeline.Workspace)/staging
                   artifact: ${{parameters.ArtifactName}}-signed
@@ -67,12 +65,12 @@ stages:
                         Get-ChildItem $(Pipeline.Workspace)/${{artifact.safeName}}
                       displayName: Stage artifacts
                       timeoutInMinutes: 5
-                    - template: eng/pipelines/templates/scripts/create-tags-and-git-release.yml@azure-sdk-tools
+                    - template: eng/pipelines/templates/steps/create-tags-and-git-release.yml
                       parameters:
                         ArtifactLocation: $(Pipeline.Workspace)/${{artifact.safeName}}
                         PackageRepository: Nuget
                         ReleaseSha: $(Build.SourceVersion)
-                        RepoId: $(Build.Repository.Name)
+                        RepoId: Azure/azure-sdk-for-net
 
           - ${{if ne(artifact.options.skipPublishPackage, 'true')}}:
             - deployment: PublishPackage
@@ -116,8 +114,7 @@ stages:
                 runOnce:
                   deploy:
                     steps:
-                      - checkout: none
-                      - template: tools/clone-buildtools/clone-buildtools.yml@azure-sdk-build-tools
+                      - checkout: azure-sdk-build-tools
                       - pwsh: |
                           New-Item -Type Directory -Name staging -Path $(Pipeline.Workspace)
                           Copy-Item $(Pipeline.Workspace)/${{parameters.ArtifactName}}-signed/${{artifact.name}}.[0-9]*.[0-9]*.[0-9]* $(Pipeline.Workspace)/staging
@@ -126,7 +123,7 @@ stages:
                       - task: MSBuild@1
                         displayName: 'Upload Symbols for ${{artifact.name}}'
                         inputs:
-                          solution: '$(AzureSDKBuildToolsPath)/tools/symboltool/SymbolUploader.proj'
+                          solution: 'tools/symboltool/SymbolUploader.proj'
                           msbuildArguments: '/p:PackagesPath=$(Pipeline.Workspace)/staging /p:MSPublicSymbolsPAT=$(azuresdk-microsoftpublicsymbols-devops-pat) /p:MSSymbolsPAT=$(azuresdk-microsoft-devops-pat) /p:AzureSDKSymbolsPAT=$(azuresdk-azure-sdk-devops-pat)'
 
           - ${{if ne(artifact.options.skipPublishDocs, 'true')}}:
@@ -143,8 +140,7 @@ stages:
                 runOnce:
                   deploy:
                     steps:
-                      - checkout: none
-                      - template: tools/clone-buildtools/clone-buildtools.yml@azure-sdk-build-tools
+                      - checkout: azure-sdk-build-tools
                       - pwsh: |
                           New-Item -Type Directory -Name ${{artifact.safeName}} -Path $(Pipeline.Workspace)
                           New-Item -Type Directory -Name packages -Path $(Pipeline.Workspace)/${{artifact.safeName}}
@@ -157,14 +153,14 @@ stages:
                           Get-ChildItem -Recurse $(Pipeline.Workspace)/${{artifact.safeName}}
                         workingDirectory: $(Pipeline.Workspace)
                         displayName: Output Visible Artifacts
-                      - template: tools/generic-blob-upload/publish-blobs.yml@azure-sdk-build-tools
+                      - template: tools/generic-blob-upload/publish-blobs.yml
                         parameters:
                           FolderForUpload: '$(Pipeline.Workspace)/${{artifact.safeName}}'
                           BlobSASKey: '$(azure-sdk-docs-prod-sas)'
                           BlobName: '$(azure-sdk-docs-prod-blob-name)'
                           TargetLanguage: 'dotnet'
                           # we override the regular script path because we have cloned the build tools repo as a separate artifact.
-                          ScriptPath: '$(AzureSDKBuildToolsPath)/scripts/copy-docs-to-blobstorage.ps1'
+                          ScriptPath: 'scripts/copy-docs-to-blobstorage.ps1'
 
           - ${{if ne(artifact.options.skipUpdatePackageVersion, 'true')}}:
             - deployment: UpdatePackageVersion
@@ -184,7 +180,6 @@ stages:
                       - pwsh: |
                           eng/Update-PkgVersion.ps1 -ServiceDirectory '${{parameters.ServiceDirectory}}' -PackageName '${{artifact.name}}' -PackageDirName '${{artifact.directoryName}}'
                         displayName: Increment package version
-                      - template: tools/clone-buildtools/clone-buildtools.yml@azure-sdk-build-tools
                       - template: pipelines/steps/create-pull-request.yml@azure-sdk-build-tools
                         parameters:
                           RepoName: azure-sdk-for-net
@@ -200,9 +195,8 @@ stages:
       pool:
         vmImage: ubuntu-16.04
       steps:
-      - checkout: none
-      - template: tools/clone-buildtools/clone-buildtools.yml@azure-sdk-build-tools
-      - template: tools/burner-feed/burner-feed-create.yml@azure-sdk-build-tools
+      - checkout: azure-sdk-build-tools
+      - template: tools/burner-feed/burner-feed-create.yml
 
       - download: current
         artifact: ${{parameters.ArtifactName}}-signed
@@ -226,14 +220,13 @@ stages:
       pool:
         vmImage: windows-2019
       steps:
-      - checkout: none
-      - template: tools/clone-buildtools/clone-buildtools.yml@azure-sdk-build-tools
+      - checkout: azure-sdk-build-tools
       - download: current
         artifact: ${{parameters.ArtifactName}}-signed
       - task: MSBuild@1
         displayName: 'Publish to blobfeed'
         inputs:
-          solution: '$(AzureSDKBuildToolsPath)/tools/blobfeedtool/BlobFeedPublishHelper.proj'
+          solution: 'tools/blobfeedtool/BlobFeedPublishHelper.proj'
           msbuildArguments: '/p:AccountKey=$(azuresdkartifacts-access-key) /p:ExpectedFeedUrl=$(BlobFeedUrl) /p:PackagesPath="$(Pipeline.Workspace)/packages-signed"'
 
   - stage: Cleanup
