@@ -7,7 +7,7 @@
 		<PackageId>Microsoft.Azure.Management.Workloads</PackageId>
 		<Description>Provides developers with libraries for the workloads under Azure Resource manager.</Description>
 		<AssemblyName>Microsoft.Azure.Management.Workloads</AssemblyName>
-		<Version>1.2.3-privatepreview</Version>
+		<Version>1.2.4-privatepreview</Version>
 		<PackageTags>Management.Migrate; Region Move;Azure Resource Mover;</PackageTags>
 		<PackageReleaseNotes>Changes to refer to new API version 2021-08-01 of Azure Workloads.</PackageReleaseNotes>
 	</PropertyGroup>

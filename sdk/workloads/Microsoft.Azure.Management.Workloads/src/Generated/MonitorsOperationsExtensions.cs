@@ -17,6 +17,7 @@ namespace Microsoft.Azure.Management.Workloads
     using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
+    using Monitor = Microsoft.Azure.Management.Workloads.Models.Monitor;
 
     /// <summary>
     /// Extension methods for MonitorsOperations.
