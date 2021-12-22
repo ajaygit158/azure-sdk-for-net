@@ -21,7 +21,7 @@ namespace Microsoft.Azure.Management.Workloads.Models
     /// Define the SAP Central Server Instance.
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class SAPCentralServerInstance : ProxyResource
+    public partial class SAPCentralServerInstance : TrackedResource
     {
         /// <summary>
         /// Initializes a new instance of the SAPCentralServerInstance class.
@@ -34,6 +34,8 @@ namespace Microsoft.Azure.Management.Workloads.Models
         /// <summary>
         /// Initializes a new instance of the SAPCentralServerInstance class.
         /// </summary>
+        /// <param name="location">The geo-location where the resource
+        /// lives</param>
         /// <param name="id">Fully qualified resource ID for the resource. Ex -
         /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}</param>
         /// <param name="name">The name of the resource</param>
@@ -42,6 +44,7 @@ namespace Microsoft.Azure.Management.Workloads.Models
         /// "Microsoft.Storage/storageAccounts"</param>
         /// <param name="systemData">Azure Resource Manager metadata containing
         /// createdBy and modifiedBy information.</param>
+        /// <param name="tags">Resource tags.</param>
         /// <param name="instanceNo">The central server instance id.</param>
         /// <param name="subnet">The central server subnet.</param>
         /// <param name="kernelVersion">The central server kernel
@@ -55,8 +58,8 @@ namespace Microsoft.Azure.Management.Workloads.Models
         /// <param name="provisioningState">Possible values include:
         /// 'Succeeded', 'Updating', 'Creating', 'Failed'</param>
         /// <param name="errors">Defines the Central Instance errors.</param>
-        public SAPCentralServerInstance(string id = default(string), string name = default(string), string type = default(string), SystemData systemData = default(SystemData), long? instanceNo = default(long?), string subnet = default(string), MessageServerProperties messageServerProperties = default(MessageServerProperties), EnqueueServerProperties enqueueServerProperties = default(EnqueueServerProperties), GatewayServerProperties gatewayServerProperties = default(GatewayServerProperties), string kernelVersion = default(string), string kernelPatch = default(string), IList<CentralServerVmDetails> vmDetails = default(IList<CentralServerVmDetails>), string status = default(string), string health = default(string), string provisioningState = default(string), SAPCentralServerPropertiesErrors errors = default(SAPCentralServerPropertiesErrors))
-            : base(id, name, type, systemData)
+        public SAPCentralServerInstance(string location, string id = default(string), string name = default(string), string type = default(string), SystemData systemData = default(SystemData), IDictionary<string, string> tags = default(IDictionary<string, string>), long? instanceNo = default(long?), string subnet = default(string), MessageServerProperties messageServerProperties = default(MessageServerProperties), EnqueueServerProperties enqueueServerProperties = default(EnqueueServerProperties), GatewayServerProperties gatewayServerProperties = default(GatewayServerProperties), string kernelVersion = default(string), string kernelPatch = default(string), IList<CentralServerVmDetails> vmDetails = default(IList<CentralServerVmDetails>), string status = default(string), string health = default(string), string provisioningState = default(string), SAPCentralServerPropertiesErrors errors = default(SAPCentralServerPropertiesErrors))
+            : base(location, id, name, type, systemData, tags)
         {
             InstanceNo = instanceNo;
             Subnet = subnet;

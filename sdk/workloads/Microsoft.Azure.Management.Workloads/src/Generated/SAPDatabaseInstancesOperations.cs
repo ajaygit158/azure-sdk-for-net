@@ -253,16 +253,19 @@ namespace Microsoft.Azure.Management.Workloads
         /// <param name='sapVirtualInstanceName'>
         /// The name of the SAP Virtual Instance.
         /// </param>
+        /// <param name='body'>
+        /// The SAP Database Server instance request body.
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<AzureOperationResponse<SAPDatabaseInstance>> CreateWithHttpMessagesAsync(string resourceGroupName, string sapVirtualInstanceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<SAPDatabaseInstance>> CreateWithHttpMessagesAsync(string resourceGroupName, string sapVirtualInstanceName, SAPDatabaseInstance body = default(SAPDatabaseInstance), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Send Request
-            AzureOperationResponse<SAPDatabaseInstance> _response = await BeginCreateWithHttpMessagesAsync(resourceGroupName, sapVirtualInstanceName, customHeaders, cancellationToken).ConfigureAwait(false);
+            AzureOperationResponse<SAPDatabaseInstance> _response = await BeginCreateWithHttpMessagesAsync(resourceGroupName, sapVirtualInstanceName, body, customHeaders, cancellationToken).ConfigureAwait(false);
             return await Client.GetPutOrPatchOperationResultAsync(_response, customHeaders, cancellationToken).ConfigureAwait(false);
         }
 
@@ -514,6 +517,9 @@ namespace Microsoft.Azure.Management.Workloads
         /// <param name='sapVirtualInstanceName'>
         /// The name of the SAP Virtual Instance.
         /// </param>
+        /// <param name='body'>
+        /// The SAP Database Server instance request body.
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -535,7 +541,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<SAPDatabaseInstance>> BeginCreateWithHttpMessagesAsync(string resourceGroupName, string sapVirtualInstanceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<SAPDatabaseInstance>> BeginCreateWithHttpMessagesAsync(string resourceGroupName, string sapVirtualInstanceName, SAPDatabaseInstance body = default(SAPDatabaseInstance), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.SubscriptionId == null)
             {
@@ -554,7 +560,6 @@ namespace Microsoft.Azure.Management.Workloads
                 throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.ApiVersion");
             }
             string databaseInstanceName = "databaseServer";
-            SAPDatabaseInstance body = default(SAPDatabaseInstance);
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
