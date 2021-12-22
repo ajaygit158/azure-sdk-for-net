@@ -5,7 +5,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Azure.Management.Workloads
+namespace Microsoft.Workloads
 {
   using System;
   using System.Collections.Generic;
