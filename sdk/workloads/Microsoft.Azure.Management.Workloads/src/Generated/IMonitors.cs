@@ -10,7 +10,6 @@ namespace Microsoft.Azure.Management.Workloads
     using Models;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Threading;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -40,7 +39,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<MonitorListResult>> ListWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<MonitorListResult>> ListWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Gets a list of SAP monitors
         /// </summary>
@@ -65,7 +64,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<MonitorListResult>> ListByResourceGroupWithHttpMessagesAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<MonitorListResult>> ListByResourceGroupWithHttpMessagesAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Gets properties of a SAP monitor.
         /// </summary>
@@ -94,7 +93,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Monitor>> GetWithHttpMessagesAsync(string resourceGroupName, string monitorName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Monitor>> GetWithHttpMessagesAsync(string resourceGroupName, string monitorName, Dictionary<string, List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Creates a SAP monitor.
         /// </summary>
@@ -126,7 +125,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Monitor>> CreateWithHttpMessagesAsync(string resourceGroupName, string monitorName, Monitor monitorParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Monitor>> CreateWithHttpMessagesAsync(string resourceGroupName, string monitorName, Monitor monitorParameter, Dictionary<string, List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deletes a SAP monitor.
         /// </summary>
@@ -155,7 +154,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<OperationStatusResult>> DeleteWithHttpMessagesAsync(string resourceGroupName, string monitorName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<OperationStatusResult>> DeleteWithHttpMessagesAsync(string resourceGroupName, string monitorName, Dictionary<string, List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Patches the Tags field of a SAP monitor.
         /// </summary>
@@ -187,6 +186,6 @@ namespace Microsoft.Azure.Management.Workloads
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Monitor>> UpdateWithHttpMessagesAsync(string resourceGroupName, string monitorName, Tags tagsParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Monitor>> UpdateWithHttpMessagesAsync(string resourceGroupName, string monitorName, Tags tagsParameter, Dictionary<string, List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     }
 }

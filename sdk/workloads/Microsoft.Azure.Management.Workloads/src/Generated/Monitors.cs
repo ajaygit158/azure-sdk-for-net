@@ -15,7 +15,6 @@ namespace Microsoft.Azure.Management.Workloads
     using System.Linq;
     using System.Net;
     using System.Net.Http;
-    using System.Threading;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -74,7 +73,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<MonitorListResult>> ListWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<MonitorListResult>> ListWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (Client.ApiVersion == null)
             {
@@ -245,7 +244,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<MonitorListResult>> ListByResourceGroupWithHttpMessagesAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<MonitorListResult>> ListByResourceGroupWithHttpMessagesAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (Client.ApiVersion == null)
             {
@@ -437,7 +436,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Monitor>> GetWithHttpMessagesAsync(string resourceGroupName, string monitorName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Monitor>> GetWithHttpMessagesAsync(string resourceGroupName, string monitorName, Dictionary<string, List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (Client.ApiVersion == null)
             {
@@ -638,7 +637,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Monitor>> CreateWithHttpMessagesAsync(string resourceGroupName, string monitorName, Monitor monitorParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Monitor>> CreateWithHttpMessagesAsync(string resourceGroupName, string monitorName, Monitor monitorParameter, Dictionary<string, List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (Client.ApiVersion == null)
             {
@@ -869,7 +868,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<OperationStatusResult>> DeleteWithHttpMessagesAsync(string resourceGroupName, string monitorName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<OperationStatusResult>> DeleteWithHttpMessagesAsync(string resourceGroupName, string monitorName, Dictionary<string, List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (Client.ApiVersion == null)
             {
@@ -1070,7 +1069,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Monitor>> UpdateWithHttpMessagesAsync(string resourceGroupName, string monitorName, Tags tagsParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Monitor>> UpdateWithHttpMessagesAsync(string resourceGroupName, string monitorName, Tags tagsParameter, Dictionary<string, List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (Client.ApiVersion == null)
             {

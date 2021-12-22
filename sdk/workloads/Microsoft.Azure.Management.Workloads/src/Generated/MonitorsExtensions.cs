@@ -7,7 +7,6 @@
 namespace Microsoft.Azure.Management.Workloads
 {
     using Models;
-    using System.Threading;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -43,7 +42,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<MonitorListResult> ListAsync(this IMonitors operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<MonitorListResult> ListAsync(this IMonitors operations, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
@@ -83,7 +82,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<MonitorListResult> ListByResourceGroupAsync(this IMonitors operations, string resourceGroupName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<MonitorListResult> ListByResourceGroupAsync(this IMonitors operations, string resourceGroupName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListByResourceGroupWithHttpMessagesAsync(resourceGroupName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -131,7 +130,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Monitor> GetAsync(this IMonitors operations, string resourceGroupName, string monitorName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Monitor> GetAsync(this IMonitors operations, string resourceGroupName, string monitorName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(resourceGroupName, monitorName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -185,7 +184,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Monitor> CreateAsync(this IMonitors operations, string resourceGroupName, string monitorName, Monitor monitorParameter, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Monitor> CreateAsync(this IMonitors operations, string resourceGroupName, string monitorName, Monitor monitorParameter, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.CreateWithHttpMessagesAsync(resourceGroupName, monitorName, monitorParameter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -233,7 +232,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<OperationStatusResult> DeleteAsync(this IMonitors operations, string resourceGroupName, string monitorName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<OperationStatusResult> DeleteAsync(this IMonitors operations, string resourceGroupName, string monitorName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.DeleteWithHttpMessagesAsync(resourceGroupName, monitorName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -287,7 +286,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Monitor> UpdateAsync(this IMonitors operations, string resourceGroupName, string monitorName, Tags tagsParameter, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Monitor> UpdateAsync(this IMonitors operations, string resourceGroupName, string monitorName, Tags tagsParameter, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.UpdateWithHttpMessagesAsync(resourceGroupName, monitorName, tagsParameter, null, cancellationToken).ConfigureAwait(false))
                 {
