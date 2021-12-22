@@ -8,17 +8,15 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Workloads.Models
+namespace Microsoft.Azure.Management.Workloads.Models
 {
-    using Microsoft.Rest;
-    using Microsoft.Rest.Azure;
     using Newtonsoft.Json;
     using System.Linq;
 
     /// <summary>
     /// Gets or sets the central server configuration.
     /// </summary>
-    public partial class CentralServerConfiguration : IResource
+    public partial class CentralServerConfiguration
     {
         /// <summary>
         /// Initializes a new instance of the CentralServerConfiguration class.

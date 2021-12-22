@@ -8,7 +8,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Workloads
+namespace Microsoft.Azure.Management.Workloads
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Azure;
@@ -84,6 +84,21 @@ namespace Microsoft.Workloads
         public virtual IWordpressInstancesOperations WordpressInstances { get; private set; }
 
         /// <summary>
+        /// Gets the IOperations.
+        /// </summary>
+        public virtual IOperations Operations { get; private set; }
+
+        /// <summary>
+        /// Gets the IMonitorsOperations.
+        /// </summary>
+        public virtual IMonitorsOperations Monitors { get; private set; }
+
+        /// <summary>
+        /// Gets the IProviderInstancesOperations.
+        /// </summary>
+        public virtual IProviderInstancesOperations ProviderInstances { get; private set; }
+
+        /// <summary>
         /// Gets the ISAPVirtualInstancesOperations.
         /// </summary>
         public virtual ISAPVirtualInstancesOperations SAPVirtualInstances { get; private set; }
@@ -102,21 +117,6 @@ namespace Microsoft.Workloads
         /// Gets the ISAPApplicationServerInstancesOperations.
         /// </summary>
         public virtual ISAPApplicationServerInstancesOperations SAPApplicationServerInstances { get; private set; }
-
-        /// <summary>
-        /// Gets the IOperations.
-        /// </summary>
-        public virtual IOperations Operations { get; private set; }
-
-        /// <summary>
-        /// Gets the IMonitorsOperations.
-        /// </summary>
-        public virtual IMonitorsOperations Monitors { get; private set; }
-
-        /// <summary>
-        /// Gets the IProviderInstancesOperations.
-        /// </summary>
-        public virtual IProviderInstancesOperations ProviderInstances { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the WorkloadsClient class.
@@ -361,13 +361,13 @@ namespace Microsoft.Workloads
         {
             PhpWorkloads = new PhpWorkloadsOperations(this);
             WordpressInstances = new WordpressInstancesOperations(this);
+            Operations = new Operations(this);
+            Monitors = new MonitorsOperations(this);
+            ProviderInstances = new ProviderInstancesOperations(this);
             SAPVirtualInstances = new SAPVirtualInstancesOperations(this);
             SAPCentralInstances = new SAPCentralInstancesOperations(this);
             SAPDatabaseInstances = new SAPDatabaseInstancesOperations(this);
             SAPApplicationServerInstances = new SAPApplicationServerInstancesOperations(this);
-            Operations = new Operations(this);
-            Monitors = new MonitorsOperations(this);
-            ProviderInstances = new ProviderInstancesOperations(this);
             BaseUri = new System.Uri("https://management.azure.com");
             ApiVersion = "2021-12-01-preview";
             AcceptLanguage = "en-US";
@@ -399,6 +399,8 @@ namespace Microsoft.Workloads
                         new Iso8601TimeSpanConverter()
                     }
             };
+            SerializationSettings.Converters.Add(new PolymorphicSerializeJsonConverter<ProviderSpecificProperties>("providerType"));
+            DeserializationSettings.Converters.Add(new PolymorphicDeserializeJsonConverter<ProviderSpecificProperties>("providerType"));
             SerializationSettings.Converters.Add(new PolymorphicSerializeJsonConverter<OSConfiguration>("osType"));
             DeserializationSettings.Converters.Add(new PolymorphicDeserializeJsonConverter<OSConfiguration>("osType"));
             SerializationSettings.Converters.Add(new PolymorphicSerializeJsonConverter<SAPSizingRecommendationResult>("deploymentType"));
@@ -407,8 +409,6 @@ namespace Microsoft.Workloads
             DeserializationSettings.Converters.Add(new PolymorphicDeserializeJsonConverter<InfrastructureConfiguration>("deploymentType"));
             SerializationSettings.Converters.Add(new PolymorphicSerializeJsonConverter<SAPConfiguration>("configurationType"));
             DeserializationSettings.Converters.Add(new PolymorphicDeserializeJsonConverter<SAPConfiguration>("configurationType"));
-            SerializationSettings.Converters.Add(new PolymorphicSerializeJsonConverter<ProviderSpecificProperties>("providerType"));
-            DeserializationSettings.Converters.Add(new PolymorphicDeserializeJsonConverter<ProviderSpecificProperties>("providerType"));
             CustomInitialize();
             DeserializationSettings.Converters.Add(new TransformationJsonConverter());
             DeserializationSettings.Converters.Add(new CloudErrorJsonConverter());

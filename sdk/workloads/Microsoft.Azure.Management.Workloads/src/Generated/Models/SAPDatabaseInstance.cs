@@ -8,10 +8,9 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Workloads.Models
+namespace Microsoft.Azure.Management.Workloads.Models
 {
     using Microsoft.Rest;
-    using Microsoft.Rest.Azure;
     using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
@@ -22,7 +21,7 @@ namespace Microsoft.Workloads.Models
     /// Define the SAP Database Instance.
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class SAPDatabaseInstance : IResource
+    public partial class SAPDatabaseInstance : ProxyResource
     {
         /// <summary>
         /// Initializes a new instance of the SAPDatabaseInstance class.
@@ -35,6 +34,14 @@ namespace Microsoft.Workloads.Models
         /// <summary>
         /// Initializes a new instance of the SAPDatabaseInstance class.
         /// </summary>
+        /// <param name="id">Fully qualified resource ID for the resource. Ex -
+        /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}</param>
+        /// <param name="name">The name of the resource</param>
+        /// <param name="type">The type of the resource. E.g.
+        /// "Microsoft.Compute/virtualMachines" or
+        /// "Microsoft.Storage/storageAccounts"</param>
+        /// <param name="systemData">Azure Resource Manager metadata containing
+        /// createdBy and modifiedBy information.</param>
         /// <param name="subnet">The database subnet.</param>
         /// <param name="databaseSid">The database SID.</param>
         /// <param name="databaseType">The SAP database type.</param>
@@ -47,7 +54,8 @@ namespace Microsoft.Workloads.Models
         /// <param name="provisioningState">Possible values include:
         /// 'Succeeded', 'Updating', 'Creating', 'Failed'</param>
         /// <param name="errors">Defines the Database Instance errors.</param>
-        public SAPDatabaseInstance(string subnet = default(string), string databaseSid = default(string), string databaseType = default(string), string ipAddress = default(string), IList<DatabaseVmDetails> vmDetails = default(IList<DatabaseVmDetails>), string status = default(string), string health = default(string), string provisioningState = default(string), SAPDatabasePropertiesErrors errors = default(SAPDatabasePropertiesErrors))
+        public SAPDatabaseInstance(string id = default(string), string name = default(string), string type = default(string), SystemData systemData = default(SystemData), string subnet = default(string), string databaseSid = default(string), string databaseType = default(string), string ipAddress = default(string), IList<DatabaseVmDetails> vmDetails = default(IList<DatabaseVmDetails>), string status = default(string), string health = default(string), string provisioningState = default(string), SAPDatabasePropertiesErrors errors = default(SAPDatabasePropertiesErrors))
+            : base(id, name, type, systemData)
         {
             Subnet = subnet;
             DatabaseSid = databaseSid;

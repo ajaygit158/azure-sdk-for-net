@@ -8,7 +8,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Workloads
+namespace Microsoft.Azure.Management.Workloads
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Azure;
@@ -63,9 +63,6 @@ namespace Microsoft.Workloads
         /// <param name='applicationInstanceName'>
         /// The name of SAP Application Server instance.
         /// </param>
-        /// <param name='body'>
-        /// The SAP Application Server instance request body.
-        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -81,7 +78,7 @@ namespace Microsoft.Workloads
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<SAPApplicationServerInstance>> CreateWithHttpMessagesAsync(string resourceGroupName, string sapVirtualInstanceName, string applicationInstanceName, SAPApplicationServerInstance body = default(SAPApplicationServerInstance), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<SAPApplicationServerInstance>> CreateWithHttpMessagesAsync(string resourceGroupName, string sapVirtualInstanceName, string applicationInstanceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Puts the SAP Application Server Instance.
         /// </summary>
@@ -180,9 +177,6 @@ namespace Microsoft.Workloads
         /// <param name='applicationInstanceName'>
         /// The name of SAP Application Server instance.
         /// </param>
-        /// <param name='body'>
-        /// The SAP Application Server instance request body.
-        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -198,7 +192,7 @@ namespace Microsoft.Workloads
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<SAPApplicationServerInstance>> BeginCreateWithHttpMessagesAsync(string resourceGroupName, string sapVirtualInstanceName, string applicationInstanceName, SAPApplicationServerInstance body = default(SAPApplicationServerInstance), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<SAPApplicationServerInstance>> BeginCreateWithHttpMessagesAsync(string resourceGroupName, string sapVirtualInstanceName, string applicationInstanceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Puts the SAP Application Server Instance.
         /// </summary>

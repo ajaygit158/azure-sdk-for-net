@@ -8,13 +8,14 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Workloads
+namespace Microsoft.Azure.Management.Workloads
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Azure;
     using Models;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Threading;
     using System.Threading.Tasks;
 
     /// <summary>

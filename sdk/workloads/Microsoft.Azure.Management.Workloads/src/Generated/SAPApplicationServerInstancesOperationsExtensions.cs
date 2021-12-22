@@ -8,7 +8,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Workloads
+namespace Microsoft.Azure.Management.Workloads
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Azure;
@@ -84,12 +84,9 @@ namespace Microsoft.Workloads
             /// <param name='applicationInstanceName'>
             /// The name of SAP Application Server instance.
             /// </param>
-            /// <param name='body'>
-            /// The SAP Application Server instance request body.
-            /// </param>
-            public static SAPApplicationServerInstance Create(this ISAPApplicationServerInstancesOperations operations, string resourceGroupName, string sapVirtualInstanceName, string applicationInstanceName, SAPApplicationServerInstance body = default(SAPApplicationServerInstance))
+            public static SAPApplicationServerInstance Create(this ISAPApplicationServerInstancesOperations operations, string resourceGroupName, string sapVirtualInstanceName, string applicationInstanceName)
             {
-                return operations.CreateAsync(resourceGroupName, sapVirtualInstanceName, applicationInstanceName, body).GetAwaiter().GetResult();
+                return operations.CreateAsync(resourceGroupName, sapVirtualInstanceName, applicationInstanceName).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -107,15 +104,12 @@ namespace Microsoft.Workloads
             /// <param name='applicationInstanceName'>
             /// The name of SAP Application Server instance.
             /// </param>
-            /// <param name='body'>
-            /// The SAP Application Server instance request body.
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<SAPApplicationServerInstance> CreateAsync(this ISAPApplicationServerInstancesOperations operations, string resourceGroupName, string sapVirtualInstanceName, string applicationInstanceName, SAPApplicationServerInstance body = default(SAPApplicationServerInstance), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<SAPApplicationServerInstance> CreateAsync(this ISAPApplicationServerInstancesOperations operations, string resourceGroupName, string sapVirtualInstanceName, string applicationInstanceName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CreateWithHttpMessagesAsync(resourceGroupName, sapVirtualInstanceName, applicationInstanceName, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateWithHttpMessagesAsync(resourceGroupName, sapVirtualInstanceName, applicationInstanceName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -278,12 +272,9 @@ namespace Microsoft.Workloads
             /// <param name='applicationInstanceName'>
             /// The name of SAP Application Server instance.
             /// </param>
-            /// <param name='body'>
-            /// The SAP Application Server instance request body.
-            /// </param>
-            public static SAPApplicationServerInstance BeginCreate(this ISAPApplicationServerInstancesOperations operations, string resourceGroupName, string sapVirtualInstanceName, string applicationInstanceName, SAPApplicationServerInstance body = default(SAPApplicationServerInstance))
+            public static SAPApplicationServerInstance BeginCreate(this ISAPApplicationServerInstancesOperations operations, string resourceGroupName, string sapVirtualInstanceName, string applicationInstanceName)
             {
-                return operations.BeginCreateAsync(resourceGroupName, sapVirtualInstanceName, applicationInstanceName, body).GetAwaiter().GetResult();
+                return operations.BeginCreateAsync(resourceGroupName, sapVirtualInstanceName, applicationInstanceName).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -301,15 +292,12 @@ namespace Microsoft.Workloads
             /// <param name='applicationInstanceName'>
             /// The name of SAP Application Server instance.
             /// </param>
-            /// <param name='body'>
-            /// The SAP Application Server instance request body.
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<SAPApplicationServerInstance> BeginCreateAsync(this ISAPApplicationServerInstancesOperations operations, string resourceGroupName, string sapVirtualInstanceName, string applicationInstanceName, SAPApplicationServerInstance body = default(SAPApplicationServerInstance), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<SAPApplicationServerInstance> BeginCreateAsync(this ISAPApplicationServerInstancesOperations operations, string resourceGroupName, string sapVirtualInstanceName, string applicationInstanceName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.BeginCreateWithHttpMessagesAsync(resourceGroupName, sapVirtualInstanceName, applicationInstanceName, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.BeginCreateWithHttpMessagesAsync(resourceGroupName, sapVirtualInstanceName, applicationInstanceName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -8,7 +8,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Workloads
+namespace Microsoft.Azure.Management.Workloads
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Azure;
@@ -83,6 +83,21 @@ namespace Microsoft.Workloads
         IWordpressInstancesOperations WordpressInstances { get; }
 
         /// <summary>
+        /// Gets the IOperations.
+        /// </summary>
+        IOperations Operations { get; }
+
+        /// <summary>
+        /// Gets the IMonitorsOperations.
+        /// </summary>
+        IMonitorsOperations Monitors { get; }
+
+        /// <summary>
+        /// Gets the IProviderInstancesOperations.
+        /// </summary>
+        IProviderInstancesOperations ProviderInstances { get; }
+
+        /// <summary>
         /// Gets the ISAPVirtualInstancesOperations.
         /// </summary>
         ISAPVirtualInstancesOperations SAPVirtualInstances { get; }
@@ -101,21 +116,6 @@ namespace Microsoft.Workloads
         /// Gets the ISAPApplicationServerInstancesOperations.
         /// </summary>
         ISAPApplicationServerInstancesOperations SAPApplicationServerInstances { get; }
-
-        /// <summary>
-        /// Gets the IOperations.
-        /// </summary>
-        IOperations Operations { get; }
-
-        /// <summary>
-        /// Gets the IMonitorsOperations.
-        /// </summary>
-        IMonitorsOperations Monitors { get; }
-
-        /// <summary>
-        /// Gets the IProviderInstancesOperations.
-        /// </summary>
-        IProviderInstancesOperations ProviderInstances { get; }
 
         /// <summary>
         /// Get SAP sizing recommendations.

@@ -8,7 +8,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Workloads.Models
+namespace Microsoft.Azure.Management.Workloads.Models
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;

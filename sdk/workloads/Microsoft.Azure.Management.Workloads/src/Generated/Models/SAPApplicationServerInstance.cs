@@ -8,10 +8,9 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Workloads.Models
+namespace Microsoft.Azure.Management.Workloads.Models
 {
     using Microsoft.Rest;
-    using Microsoft.Rest.Azure;
     using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Linq;
@@ -20,7 +19,7 @@ namespace Microsoft.Workloads.Models
     /// Define the SAP Application Server Instance.
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class SAPApplicationServerInstance : IResource
+    public partial class SAPApplicationServerInstance : ProxyResource
     {
         /// <summary>
         /// Initializes a new instance of the SAPApplicationServerInstance
@@ -35,6 +34,14 @@ namespace Microsoft.Workloads.Models
         /// Initializes a new instance of the SAPApplicationServerInstance
         /// class.
         /// </summary>
+        /// <param name="id">Fully qualified resource ID for the resource. Ex -
+        /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}</param>
+        /// <param name="name">The name of the resource</param>
+        /// <param name="type">The type of the resource. E.g.
+        /// "Microsoft.Compute/virtualMachines" or
+        /// "Microsoft.Storage/storageAccounts"</param>
+        /// <param name="systemData">Azure Resource Manager metadata containing
+        /// createdBy and modifiedBy information.</param>
         /// <param name="instanceNo">The application server instance
         /// id.</param>
         /// <param name="subnet">The application server subnet.</param>
@@ -61,7 +68,8 @@ namespace Microsoft.Workloads.Models
         /// 'Succeeded', 'Updating', 'Creating', 'Failed'</param>
         /// <param name="errors">Defines the Application Instance
         /// errors.</param>
-        public SAPApplicationServerInstance(long? instanceNo = default(long?), string subnet = default(string), string hostname = default(string), string kernelVersion = default(string), string kernelPatch = default(string), string ipAddress = default(string), long? gatewayPort = default(long?), long? icmHttpPort = default(long?), long? icmHttpsPort = default(long?), string virtualMachineId = default(string), string status = default(string), string health = default(string), string provisioningState = default(string), SAPApplicationServerPropertiesErrors errors = default(SAPApplicationServerPropertiesErrors))
+        public SAPApplicationServerInstance(string id = default(string), string name = default(string), string type = default(string), SystemData systemData = default(SystemData), long? instanceNo = default(long?), string subnet = default(string), string hostname = default(string), string kernelVersion = default(string), string kernelPatch = default(string), string ipAddress = default(string), long? gatewayPort = default(long?), long? icmHttpPort = default(long?), long? icmHttpsPort = default(long?), string virtualMachineId = default(string), string status = default(string), string health = default(string), string provisioningState = default(string), SAPApplicationServerPropertiesErrors errors = default(SAPApplicationServerPropertiesErrors))
+            : base(id, name, type, systemData)
         {
             InstanceNo = instanceNo;
             Subnet = subnet;

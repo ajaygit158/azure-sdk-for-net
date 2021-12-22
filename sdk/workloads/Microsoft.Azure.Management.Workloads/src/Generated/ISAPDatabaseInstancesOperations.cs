@@ -8,7 +8,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Workloads
+namespace Microsoft.Azure.Management.Workloads
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Azure;
@@ -57,9 +57,6 @@ namespace Microsoft.Workloads
         /// <param name='sapVirtualInstanceName'>
         /// The name of the SAP Virtual Instance.
         /// </param>
-        /// <param name='body'>
-        /// The SAP Database Server instance request body.
-        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -75,7 +72,7 @@ namespace Microsoft.Workloads
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<SAPDatabaseInstance>> CreateWithHttpMessagesAsync(string resourceGroupName, string sapVirtualInstanceName, SAPDatabaseInstance body = default(SAPDatabaseInstance), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<SAPDatabaseInstance>> CreateWithHttpMessagesAsync(string resourceGroupName, string sapVirtualInstanceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Puts the SAP Database Instance.
         /// </summary>
@@ -165,9 +162,6 @@ namespace Microsoft.Workloads
         /// <param name='sapVirtualInstanceName'>
         /// The name of the SAP Virtual Instance.
         /// </param>
-        /// <param name='body'>
-        /// The SAP Database Server instance request body.
-        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -183,7 +177,7 @@ namespace Microsoft.Workloads
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<SAPDatabaseInstance>> BeginCreateWithHttpMessagesAsync(string resourceGroupName, string sapVirtualInstanceName, SAPDatabaseInstance body = default(SAPDatabaseInstance), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<SAPDatabaseInstance>> BeginCreateWithHttpMessagesAsync(string resourceGroupName, string sapVirtualInstanceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Puts the SAP Database Instance.
         /// </summary>

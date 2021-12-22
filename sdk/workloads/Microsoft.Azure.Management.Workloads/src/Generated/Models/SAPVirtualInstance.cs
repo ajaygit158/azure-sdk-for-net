@@ -8,19 +8,20 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Workloads.Models
+namespace Microsoft.Azure.Management.Workloads.Models
 {
     using Microsoft.Rest;
-    using Microsoft.Rest.Azure;
     using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
     /// Define the SAP Virtual Instance.
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class SAPVirtualInstance : IResource
+    public partial class SAPVirtualInstance : TrackedResource
     {
         /// <summary>
         /// Initializes a new instance of the SAPVirtualInstance class.
@@ -33,10 +34,21 @@ namespace Microsoft.Workloads.Models
         /// <summary>
         /// Initializes a new instance of the SAPVirtualInstance class.
         /// </summary>
+        /// <param name="location">The geo-location where the resource
+        /// lives</param>
         /// <param name="environment">Possible values include: 'NonProd',
         /// 'Prod'</param>
         /// <param name="sapProduct">Possible values include: 'ECC',
         /// 'S4HANA'</param>
+        /// <param name="id">Fully qualified resource ID for the resource. Ex -
+        /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}</param>
+        /// <param name="name">The name of the resource</param>
+        /// <param name="type">The type of the resource. E.g.
+        /// "Microsoft.Compute/virtualMachines" or
+        /// "Microsoft.Storage/storageAccounts"</param>
+        /// <param name="systemData">Azure Resource Manager metadata containing
+        /// createdBy and modifiedBy information.</param>
+        /// <param name="tags">Resource tags.</param>
         /// <param name="configuration">The SAP Deployment or discovery
         /// configuration</param>
         /// <param name="status">Possible values include: 'Starting',
@@ -54,7 +66,8 @@ namespace Microsoft.Workloads.Models
         /// 'Succeeded', 'Updating', 'Creating', 'Failed'</param>
         /// <param name="errors">Defines the SAP Virtual Instance
         /// errors.</param>
-        public SAPVirtualInstance(string environment, string sapProduct, SAPVirtualInstanceIdentity identity = default(SAPVirtualInstanceIdentity), SAPConfiguration configuration = default(SAPConfiguration), string status = default(string), string health = default(string), string state = default(string), string provisioningState = default(string), SAPVirtualInstancePropertiesErrors errors = default(SAPVirtualInstancePropertiesErrors))
+        public SAPVirtualInstance(string location, string environment, string sapProduct, string id = default(string), string name = default(string), string type = default(string), SystemData systemData = default(SystemData), IDictionary<string, string> tags = default(IDictionary<string, string>), SAPVirtualInstanceIdentity identity = default(SAPVirtualInstanceIdentity), SAPConfiguration configuration = default(SAPConfiguration), string status = default(string), string health = default(string), string state = default(string), string provisioningState = default(string), SAPVirtualInstancePropertiesErrors errors = default(SAPVirtualInstancePropertiesErrors))
+            : base(location, id, name, type, systemData, tags)
         {
             Identity = identity;
             Environment = environment;
