@@ -21,18 +21,18 @@ namespace Microsoft.Azure.Management.Workloads.Models
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class Monitor : TrackedResource
+    public partial class WorkloadMonitor : TrackedResource
     {
         /// <summary>
-        /// Initializes a new instance of the Monitor class.
+        /// Initializes a new instance of the WorkloadMonitor class.
         /// </summary>
-        public Monitor()
+        public WorkloadMonitor()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Monitor class.
+        /// Initializes a new instance of the WorkloadMonitor class.
         /// </summary>
         /// <param name="location">The geo-location where the resource
         /// lives</param>
@@ -63,7 +63,7 @@ namespace Microsoft.Azure.Management.Workloads.Models
         /// analytics workspace to be used for monitoring.</param>
         /// <param name="monitorSubnet">The subnet which the SAP monitor will
         /// be deployed in</param>
-        public Monitor(string location, string id = default(string), string name = default(string), string type = default(string), SystemData systemData = default(SystemData), IDictionary<string, string> tags = default(IDictionary<string, string>), string provisioningState = default(string), MonitorPropertiesErrors errors = default(MonitorPropertiesErrors), string appLocation = default(string), string routingPreference = default(string), string managedResourceGroupId = default(string), string logAnalyticsWorkspaceArmId = default(string), string logAnalyticsWorkspaceId = default(string), string monitorSubnet = default(string))
+        public WorkloadMonitor(string location, string id = default(string), string name = default(string), string type = default(string), SystemData systemData = default(SystemData), IDictionary<string, string> tags = default(IDictionary<string, string>), string provisioningState = default(string), MonitorPropertiesErrors errors = default(MonitorPropertiesErrors), string appLocation = default(string), string routingPreference = default(string), string managedResourceGroupId = default(string), string logAnalyticsWorkspaceArmId = default(string), string logAnalyticsWorkspaceId = default(string), string monitorSubnet = default(string))
             : base(location, id, name, type, systemData, tags)
         {
             ProvisioningState = provisioningState;

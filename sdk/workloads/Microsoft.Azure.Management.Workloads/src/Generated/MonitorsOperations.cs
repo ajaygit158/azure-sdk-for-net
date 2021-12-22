@@ -79,7 +79,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Monitor>>> ListWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<WorkloadMonitor>>> ListWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.ApiVersion == null)
             {
@@ -196,7 +196,7 @@ namespace Microsoft.Azure.Management.Workloads
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<IPage<Monitor>>();
+            var _result = new AzureOperationResponse<IPage<WorkloadMonitor>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -209,7 +209,7 @@ namespace Microsoft.Azure.Management.Workloads
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<Monitor>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<WorkloadMonitor>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -258,7 +258,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Monitor>>> ListByResourceGroupWithHttpMessagesAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<WorkloadMonitor>>> ListByResourceGroupWithHttpMessagesAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.ApiVersion == null)
             {
@@ -381,7 +381,7 @@ namespace Microsoft.Azure.Management.Workloads
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<IPage<Monitor>>();
+            var _result = new AzureOperationResponse<IPage<WorkloadMonitor>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -394,7 +394,7 @@ namespace Microsoft.Azure.Management.Workloads
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<Monitor>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<WorkloadMonitor>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -447,7 +447,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<Monitor>> GetWithHttpMessagesAsync(string resourceGroupName, string monitorName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<WorkloadMonitor>> GetWithHttpMessagesAsync(string resourceGroupName, string monitorName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.ApiVersion == null)
             {
@@ -576,7 +576,7 @@ namespace Microsoft.Azure.Management.Workloads
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<Monitor>();
+            var _result = new AzureOperationResponse<WorkloadMonitor>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -589,7 +589,7 @@ namespace Microsoft.Azure.Management.Workloads
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Monitor>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<WorkloadMonitor>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -630,10 +630,10 @@ namespace Microsoft.Azure.Management.Workloads
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<AzureOperationResponse<Monitor>> CreateWithHttpMessagesAsync(string resourceGroupName, string monitorName, Monitor monitorParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<WorkloadMonitor>> CreateWithHttpMessagesAsync(string resourceGroupName, string monitorName, WorkloadMonitor monitorParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Send Request
-            AzureOperationResponse<Monitor> _response = await BeginCreateWithHttpMessagesAsync(resourceGroupName, monitorName, monitorParameter, customHeaders, cancellationToken).ConfigureAwait(false);
+            AzureOperationResponse<WorkloadMonitor> _response = await BeginCreateWithHttpMessagesAsync(resourceGroupName, monitorName, monitorParameter, customHeaders, cancellationToken).ConfigureAwait(false);
             return await Client.GetPutOrPatchOperationResultAsync(_response, customHeaders, cancellationToken).ConfigureAwait(false);
         }
 
@@ -700,7 +700,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<Monitor>> UpdateWithHttpMessagesAsync(string resourceGroupName, string monitorName, IDictionary<string, string> tagsProperty = default(IDictionary<string, string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<WorkloadMonitor>> UpdateWithHttpMessagesAsync(string resourceGroupName, string monitorName, IDictionary<string, string> tagsProperty = default(IDictionary<string, string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.ApiVersion == null)
             {
@@ -841,7 +841,7 @@ namespace Microsoft.Azure.Management.Workloads
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<Monitor>();
+            var _result = new AzureOperationResponse<WorkloadMonitor>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -854,7 +854,7 @@ namespace Microsoft.Azure.Management.Workloads
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Monitor>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<WorkloadMonitor>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -910,7 +910,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<Monitor>> BeginCreateWithHttpMessagesAsync(string resourceGroupName, string monitorName, Monitor monitorParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<WorkloadMonitor>> BeginCreateWithHttpMessagesAsync(string resourceGroupName, string monitorName, WorkloadMonitor monitorParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.ApiVersion == null)
             {
@@ -1050,7 +1050,7 @@ namespace Microsoft.Azure.Management.Workloads
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<Monitor>();
+            var _result = new AzureOperationResponse<WorkloadMonitor>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -1063,7 +1063,7 @@ namespace Microsoft.Azure.Management.Workloads
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Monitor>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<WorkloadMonitor>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1081,7 +1081,7 @@ namespace Microsoft.Azure.Management.Workloads
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Monitor>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<WorkloadMonitor>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1326,7 +1326,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Monitor>>> ListNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<WorkloadMonitor>>> ListNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -1435,7 +1435,7 @@ namespace Microsoft.Azure.Management.Workloads
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<IPage<Monitor>>();
+            var _result = new AzureOperationResponse<IPage<WorkloadMonitor>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -1448,7 +1448,7 @@ namespace Microsoft.Azure.Management.Workloads
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<Monitor>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<WorkloadMonitor>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1497,7 +1497,7 @@ namespace Microsoft.Azure.Management.Workloads
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Monitor>>> ListByResourceGroupNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<WorkloadMonitor>>> ListByResourceGroupNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -1606,7 +1606,7 @@ namespace Microsoft.Azure.Management.Workloads
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<IPage<Monitor>>();
+            var _result = new AzureOperationResponse<IPage<WorkloadMonitor>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -1619,7 +1619,7 @@ namespace Microsoft.Azure.Management.Workloads
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<Monitor>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<WorkloadMonitor>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

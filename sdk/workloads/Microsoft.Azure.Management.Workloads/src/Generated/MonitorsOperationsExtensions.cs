@@ -34,7 +34,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static IPage<Monitor> List(this IMonitorsOperations operations)
+            public static IPage<WorkloadMonitor> List(this IMonitorsOperations operations)
             {
                 return operations.ListAsync().GetAwaiter().GetResult();
             }
@@ -52,7 +52,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<Monitor>> ListAsync(this IMonitorsOperations operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<WorkloadMonitor>> ListAsync(this IMonitorsOperations operations, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
@@ -72,7 +72,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='resourceGroupName'>
             /// The name of the resource group. The name is case insensitive.
             /// </param>
-            public static IPage<Monitor> ListByResourceGroup(this IMonitorsOperations operations, string resourceGroupName)
+            public static IPage<WorkloadMonitor> ListByResourceGroup(this IMonitorsOperations operations, string resourceGroupName)
             {
                 return operations.ListByResourceGroupAsync(resourceGroupName).GetAwaiter().GetResult();
             }
@@ -92,7 +92,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<Monitor>> ListByResourceGroupAsync(this IMonitorsOperations operations, string resourceGroupName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<WorkloadMonitor>> ListByResourceGroupAsync(this IMonitorsOperations operations, string resourceGroupName, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListByResourceGroupWithHttpMessagesAsync(resourceGroupName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -116,7 +116,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='monitorName'>
             /// Name of the SAP monitor resource.
             /// </param>
-            public static Monitor Get(this IMonitorsOperations operations, string resourceGroupName, string monitorName)
+            public static WorkloadMonitor Get(this IMonitorsOperations operations, string resourceGroupName, string monitorName)
             {
                 return operations.GetAsync(resourceGroupName, monitorName).GetAwaiter().GetResult();
             }
@@ -140,7 +140,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Monitor> GetAsync(this IMonitorsOperations operations, string resourceGroupName, string monitorName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<WorkloadMonitor> GetAsync(this IMonitorsOperations operations, string resourceGroupName, string monitorName, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(resourceGroupName, monitorName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -167,7 +167,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='monitorParameter'>
             /// Request body representing a SAP Monitor
             /// </param>
-            public static Monitor Create(this IMonitorsOperations operations, string resourceGroupName, string monitorName, Monitor monitorParameter)
+            public static WorkloadMonitor Create(this IMonitorsOperations operations, string resourceGroupName, string monitorName, WorkloadMonitor monitorParameter)
             {
                 return operations.CreateAsync(resourceGroupName, monitorName, monitorParameter).GetAwaiter().GetResult();
             }
@@ -194,7 +194,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Monitor> CreateAsync(this IMonitorsOperations operations, string resourceGroupName, string monitorName, Monitor monitorParameter, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<WorkloadMonitor> CreateAsync(this IMonitorsOperations operations, string resourceGroupName, string monitorName, WorkloadMonitor monitorParameter, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreateWithHttpMessagesAsync(resourceGroupName, monitorName, monitorParameter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -269,7 +269,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='tagsProperty'>
             /// Tags field of the resource.
             /// </param>
-            public static Monitor Update(this IMonitorsOperations operations, string resourceGroupName, string monitorName, IDictionary<string, string> tagsProperty = default(IDictionary<string, string>))
+            public static WorkloadMonitor Update(this IMonitorsOperations operations, string resourceGroupName, string monitorName, IDictionary<string, string> tagsProperty = default(IDictionary<string, string>))
             {
                 return operations.UpdateAsync(resourceGroupName, monitorName, tagsProperty).GetAwaiter().GetResult();
             }
@@ -296,7 +296,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Monitor> UpdateAsync(this IMonitorsOperations operations, string resourceGroupName, string monitorName, IDictionary<string, string> tagsProperty = default(IDictionary<string, string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<WorkloadMonitor> UpdateAsync(this IMonitorsOperations operations, string resourceGroupName, string monitorName, IDictionary<string, string> tagsProperty = default(IDictionary<string, string>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UpdateWithHttpMessagesAsync(resourceGroupName, monitorName, tagsProperty, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -323,7 +323,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='monitorParameter'>
             /// Request body representing a SAP Monitor
             /// </param>
-            public static Monitor BeginCreate(this IMonitorsOperations operations, string resourceGroupName, string monitorName, Monitor monitorParameter)
+            public static WorkloadMonitor BeginCreate(this IMonitorsOperations operations, string resourceGroupName, string monitorName, WorkloadMonitor monitorParameter)
             {
                 return operations.BeginCreateAsync(resourceGroupName, monitorName, monitorParameter).GetAwaiter().GetResult();
             }
@@ -350,7 +350,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Monitor> BeginCreateAsync(this IMonitorsOperations operations, string resourceGroupName, string monitorName, Monitor monitorParameter, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<WorkloadMonitor> BeginCreateAsync(this IMonitorsOperations operations, string resourceGroupName, string monitorName, WorkloadMonitor monitorParameter, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.BeginCreateWithHttpMessagesAsync(resourceGroupName, monitorName, monitorParameter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -419,7 +419,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static IPage<Monitor> ListNext(this IMonitorsOperations operations, string nextPageLink)
+            public static IPage<WorkloadMonitor> ListNext(this IMonitorsOperations operations, string nextPageLink)
             {
                 return operations.ListNextAsync(nextPageLink).GetAwaiter().GetResult();
             }
@@ -440,7 +440,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<Monitor>> ListNextAsync(this IMonitorsOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<WorkloadMonitor>> ListNextAsync(this IMonitorsOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -460,7 +460,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static IPage<Monitor> ListByResourceGroupNext(this IMonitorsOperations operations, string nextPageLink)
+            public static IPage<WorkloadMonitor> ListByResourceGroupNext(this IMonitorsOperations operations, string nextPageLink)
             {
                 return operations.ListByResourceGroupNextAsync(nextPageLink).GetAwaiter().GetResult();
             }
@@ -480,7 +480,7 @@ namespace Microsoft.Azure.Management.Workloads
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<Monitor>> ListByResourceGroupNextAsync(this IMonitorsOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<WorkloadMonitor>> ListByResourceGroupNextAsync(this IMonitorsOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListByResourceGroupNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {
