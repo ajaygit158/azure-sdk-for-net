@@ -21,7 +21,6 @@ namespace Microsoft.Azure.Management.Workloads
     using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
-    using Monitor = Microsoft.Azure.Management.Workloads.Models.Monitor;
 
     /// <summary>
     /// MonitorsOperations operations.
